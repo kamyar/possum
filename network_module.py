@@ -29,3 +29,7 @@ for adapter in adapters:
     # print adapter._ifAttributes
 
 interfaces.writeInterfaces()
+
+
+# another possiuble candidate is
+#   https://github.com/rlisagor/pynetlinux
