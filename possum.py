@@ -40,22 +40,8 @@ class Possum_DBus(dbus.service.Object):
                 return string1 + " " + string2
 
 
-# class Possum_DBus2(dbus.service.Object):
-
-#         def __init__(self):
-#                 bus_name = dbus.service.BusName('com.viero.possum', bus=dbus.SystemBus())
-#                 dbus.service.Object.__init__(self, bus_name, '/two')
-#         # Interface and Method
-#         @dbus.service.method('org.me.test1')
-#         def session_bus_message1(self, strcmd):
-#                 print "dbus2", strcmd
-#                 print subprocess.check_output(strcmd.split())
-#                 return "Server Bus 1"
-
 
 DBusGMainLoop(set_as_default=True)
-# dbus_service = Possum_DBus()
-# Possum_DBus2()
 
 PossumTime()
 PossumSystem()
