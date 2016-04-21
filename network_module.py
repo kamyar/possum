@@ -5,7 +5,7 @@ from possum_common import *
 
 
 
-class PossumNetwork(PossumServiceBase):
+class PossumNetwork(dbus.service.Object):
     def __init__(self, bus_name):
         dbus.service.Object.__init__(self, bus_name, '/network')
 

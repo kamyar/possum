@@ -4,7 +4,7 @@ from datetime import datetime
 from possum_common import *
 
 
-class PossumTime(PossumServiceBase):
+class PossumTime(dbus.service.Object):
     def __init__(self, bus_name):
         # bus_name = dbus.service.BusName('com.viero.possum', bus=dbus.SystemBus())
         dbus.service.Object.__init__(self, bus_name, '/time')
