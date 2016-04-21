@@ -20,7 +20,7 @@ network_iface = dbus.Interface(networkbus, "possum.network")
 echo_test_dict = {}
 echo_test_dict["this_is_foo"] = "with value bar"
 echo_test_dict["Sometimes_i_baz"] = "I don not expect a quz"
-# print time_iface.echo_test(echo_test_dict)
+print time_iface.echo_test(echo_test_dict)
 # print system_iface.echo_test(raw_input())
 # print system_iface.run_cmd(raw_input())
 print network_iface.get_ifaces()

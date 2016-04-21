@@ -3,10 +3,11 @@ from debinterface import interfaces
 from possum_common import *
 
 
+
+
 class PossumNetwork(PossumServiceBase):
     def __init__(self, bus_name):
         dbus.service.Object.__init__(self, bus_name, '/network')
-        # super(FileInfo, self).__init__()
 
 
     @dbus.service.method('possum.network')
@@ -20,6 +21,7 @@ class PossumNetwork(PossumServiceBase):
 
 
     @dbus.service.method('possum.network')
+    @log_dbus_invoke
     def get_ifaces(self):
         # TODO: Get list of ifaces
         print "Gonna return ifaces list"

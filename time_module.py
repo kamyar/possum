@@ -10,6 +10,7 @@ class PossumTime(PossumServiceBase):
         dbus.service.Object.__init__(self, bus_name, '/time')
 
     @dbus.service.method('possum.time')
+    @log_dbus_invoke
     def echo_test(self, echo_dict):
         print "PossumTime:"
         print "\tEcho Got:"

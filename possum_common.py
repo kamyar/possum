@@ -4,6 +4,8 @@ import dbus
 import dbus.service
 from dbus.mainloop.glib import DBusGMainLoop
 import json
+import decorator
+
 
 # currently not working as decorator changes the method name
 #  it causes dbus to not recognize the method.
@@ -19,8 +21,18 @@ def dict2json(arg_dict):
     return json.dumps(arg_dict)
 
 
-class PossumServiceBase(dbus.service.Object):
-    def __init__(self):
-        pass
 
+@decorator.decorator
+def log_dbus_invoke(f, *args, **kwargs):
+    print "will call", f.__name__, "from", f.__module__
+    print "With args:"
+    print "\t", args
+    print "\t", kwargs
+    # print dir(f)
+    # for attr in dir(f):
+        # print attr,"--->", f.__getattribute__(attr)
+    res = f(*args, **kwargs)
+    print "Result:"
+    print "\t", res
+    return res
 
