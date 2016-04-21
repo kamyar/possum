@@ -5,8 +5,6 @@ import subprocess
 
 from possum_common import *
 
-
-
 # import network_module
 from time_module import PossumTime
 from system_module import PossumSystem
@@ -25,14 +23,12 @@ class Possum_DBus(dbus.service.Object):
                 print subprocess.check_output(strcmd.split())
                 return "Server Bus 1"
 
-
         # Different Interface and different Method
         # The method must not have not the same name as the first
         @dbus.service.method('org.me.test2')
         def session_bus_message2(self):
                 print "lol2"
                 return "Server Bus 2"
-
 
         # Method with arguments
         @dbus.service.method('org.me.test2')
@@ -43,8 +39,10 @@ class Possum_DBus(dbus.service.Object):
 
 DBusGMainLoop(set_as_default=True)
 
-PossumTime()
-PossumSystem()
+bus_name = dbus.service.BusName('com.viero.possum', bus=dbus.SystemBus())
+
+PossumTime(bus_name)
+PossumSystem(bus_name)
 
 
 try:
