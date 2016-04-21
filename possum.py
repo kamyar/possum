@@ -5,9 +5,9 @@ import subprocess
 
 from possum_common import *
 
-# import network_module
 from time_module import PossumTime
 from system_module import PossumSystem
+from network_module import PossumNetwork
 
 
 class Possum_DBus(dbus.service.Object):
@@ -43,7 +43,7 @@ bus_name = dbus.service.BusName('com.viero.possum', bus=dbus.SystemBus())
 
 PossumTime(bus_name)
 PossumSystem(bus_name)
-
+PossumNetwork(bus_name)
 
 try:
     GLib.MainLoop().run()
