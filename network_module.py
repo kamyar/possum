@@ -11,10 +11,8 @@ class PossumNetwork(dbus.service.Object):
 
 
     @dbus.service.method('possum.network')
+    @log_dbus_invoke
     def echo_test(self, echo_dict):
-        print "PossumTime:"
-        print "\tEcho Got:"
-        # print echo_str
         for key in echo_dict:
             print "\t\t", key, echo_dict[key]
         return echo_dict
@@ -35,14 +33,15 @@ class PossumNetwork(dbus.service.Object):
 
 
     @dbus.service.method('possum.network')
+    @log_dbus_invoke
     def get_iface_info(self, iface_name):
         # TODO: Get iface info
         print "Gonna return iface info for", iface_name
         return "lol"
 
-    # INFO: If there is a prob;em with sending python dictionaries,
-    #       the iface info can be sent as json and deserialized to dict
+    # TODO: get info as jeson, dbus does not allow nested dict/lists
     @dbus.service.method('possum.network')
+    @log_dbus_invoke
     def set_iface_info(self, iface_info_dict):
         print subprocess.check_output(strcmd.split())
         return "Server Bus 1"
